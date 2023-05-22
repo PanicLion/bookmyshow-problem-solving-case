@@ -1,5 +1,3 @@
-// const sequelize = require('../connections/mysql.connection');
-// const City = require('../models/city.model');
 const getCities = require('../services/city.services');
 
 

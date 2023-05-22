@@ -5,16 +5,22 @@
 
 > Bookmyshow is a ticketing platform where you can book tickets for a movie show. As part of this problem, we need to build API’s for the following feature. As a user, I can select any theatre in the city. On selecting the theatre, I should be able to see the dates of next 7 days. I can click on any date and the page should load to give me all the movies in that theatre on that given date. Movies should contain details of all the showtimes.
 
-## How To Setup:
+## See it in action:
 
 - Create a ```.env``` file and update the fields mentioned in [env.example file](./env.example)
 
 - Install dependecies
 ``` npm install ```
-- Setup DB (**run before starting the server**)
-``` npm run setup-db ```
+
 - Start the server
 ``` npm start ```
+
+- Open your browser and try these REST endpoints (<i>Interactive</i>):
+    - ``` http://localhost:3000/ ``` (GET) you list of cities
+    - ``` http://localhost:3000/city/:cityId/cinemas ``` (GET) you list of cinemas for the city you chose
+    - ``` http://localhost:3000/:cityId/:cinemaId ``` (GET) you the next 7 days (including today's) to choose shows for
+    - ``` http://localhost:3000/:cityId/:cinemaId/:date ``` (GET) you the list of shows available for the chosen cinema & date
+    
 
 ## Schema:
 

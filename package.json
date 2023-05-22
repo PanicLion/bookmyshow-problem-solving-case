@@ -4,8 +4,7 @@
   "description": "",
   "main": "src/app.js",
   "scripts": {
-    "start": "nodemon src/app",
-    "setup-db": "node src/helper/setup.js"
+    "start": "nodemon src/app"
   },
   "author": "",
   "license": "ISC",

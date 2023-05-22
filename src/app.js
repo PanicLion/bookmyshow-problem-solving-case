@@ -5,7 +5,7 @@ const { sequelize, connectToDB } = require('./connections/mysql.connection');
 const cities = require('./controllers/city.controller');
 const cinemaRouter = require('./routes/cinemas.routes');
 const showsRouter = require('./routes/shows.routes');
-
+const reset = require('./helper/setup');
 
 const app = express();
 
@@ -30,5 +30,6 @@ app.listen(process.env.PORT || PORT, async (err) => {
     if (!err) {
         console.log(`Server is running and listening to PORT: ${PORT}`);
         await connectToDB();
+        await reset();
     }
 });

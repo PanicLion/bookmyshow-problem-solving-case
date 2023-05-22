@@ -4,7 +4,7 @@ const { DataTypes } = require('sequelize');
 
 const Show = sequelize.define("shows", {
     date: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         allowNull: false
     },
     start_time: {

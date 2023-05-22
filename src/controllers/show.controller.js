@@ -6,7 +6,7 @@ const shows = async (req, res) => {
     const date = req.params['date'];
     try{
         let shows = await getShowsByCinemaId(cinemaId, date);
-        if (!shows.dataValues) {
+        if (shows.length === 0) {
             return res.status(404).send({
                 message: "Show not found for selected date."
             });

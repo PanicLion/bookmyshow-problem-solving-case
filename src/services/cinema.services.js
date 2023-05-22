@@ -4,10 +4,13 @@ const City = require('../models/city.model');
 
 async function getCinemasByCityId(cityId) {
     const cinemas = await Cinema.findAll({
+        include: {
+            model: City,
+            attributes: ['name']
+        },
         attributes: [
             'id',
-            'name',
-            'cityId'
+            'name'
         ],
         where: {
             cityId: cityId

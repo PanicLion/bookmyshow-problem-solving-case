@@ -7,7 +7,7 @@ const applyExtraSetup = require('../extra-setup');
 
 async function reset () {
     applyExtraSetup();
-    await sequelize.sync();
+    await sequelize.sync({ force: true });
 
     await City.bulkCreate([
         {name: 'Bengaluru', state: 'Karnataka'},
@@ -1006,4 +1006,4 @@ async function reset () {
     ]);
 };
 
-reset();
+module.exports = reset;

@@ -24,7 +24,7 @@ const Movie = sequelize.define("movies", {
         allowNull: false
     },
     release_date: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         allowNull: false
     },
     language: {
