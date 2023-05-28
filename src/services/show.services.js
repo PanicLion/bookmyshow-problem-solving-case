@@ -1,7 +1,8 @@
-const { Op } = require('sequelize');
+// const { Op } = require('sequelize');
 const Show = require('../models/show.model');
-const CinemaHall = require('../models/cinema.model').CinemaHall;
+const { Cinema, CinemaHall } = require('../models/cinema.model');
 const Movie = require('../models/movie.model');
+const City = require('../models/city.model');
 
 
 async function getShowsByCinemaId(cinemaId, date) {
@@ -24,13 +25,14 @@ async function getShowsByCinemaId(cinemaId, date) {
                     ]
                 }
             ],
-            where: {
-                date: date,
-                start_time: {
-                    [Op.gt]: new Date().toLocaleTimeString('it-IT')
-                }
-            },
+            // where: {
+            //     date: date,
+            //     start_time: {
+            //         [Op.gt]: new Date().toLocaleTimeString('it-IT')
+            //     }
+            // },
             attributes: [
+                'id',
                 'start_time',
                 'end_time',
             ]
@@ -41,4 +43,60 @@ async function getShowsByCinemaId(cinemaId, date) {
     }
 }
 
-module.exports = getShowsByCinemaId;
+
+async function getShowById(showId, t) {
+    try {
+        const show = Show.findOne({
+            include: [
+                {
+                    model: CinemaHall,
+                    attributes: [
+                        'id',
+                        'name'
+                    ],
+                    include: [
+                        {
+                            model: Cinema,
+                            attributes: [
+                                'name'
+                            ],
+                            include: [
+                                {
+                                    model: City,
+                                    attributes: [
+                                        'name'
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    model: Movie,
+                    attributes: [
+                        'id',
+                        'title', 
+                        'description', 
+                        'duration'
+                    ]
+                }
+                
+            ],
+            where: {
+                id: showId
+            },
+            attributes: [
+                'id',
+                'date',
+                'start_time',
+            ],
+            transaction: t
+        });
+        return show;
+    } catch (err) {
+        console.log(err);
+        throw new Error();
+    }
+}
+
+module.exports = { getShowsByCinemaId, getShowById };

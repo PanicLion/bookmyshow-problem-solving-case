@@ -15,6 +15,13 @@ const Show = sequelize.define("shows", {
         type: DataTypes.TIME,
         allowNull: false
     }
+}, {
+    indexes: [
+        {
+            name: 'show_date_index',
+            fields: ['date']
+        }
+    ]
 });
 
 
