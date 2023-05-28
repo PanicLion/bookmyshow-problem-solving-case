@@ -5,6 +5,7 @@ const { sequelize, connectToDB } = require('./connections/mysql.connection');
 const cities = require('./controllers/city.controller');
 const cinemaRouter = require('./routes/cinemas.routes');
 const showsRouter = require('./routes/shows.routes');
+const bookingRouter = require('./routes/booking.routes');
 const reset = require('./helper/setup');
 
 const app = express();
@@ -21,8 +22,8 @@ app.get('/', async (req, res) => {
 })
 
 app.use('/city', cinemaRouter);
-
 app.use('/shows', showsRouter);
+app.use('/booktickets', bookingRouter);
 
 PORT = 3000;
 
