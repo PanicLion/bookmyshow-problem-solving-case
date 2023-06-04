@@ -10,7 +10,10 @@ Constraint: No two people should be able to book same seat at the same time for 
 The API that loads data for all shows on a given date has become slow. Which columns would you index to improve the performance of the API ? Why ?  
 You have noticed that even after indexing the columns the API speed isn’t under 100 ms. Update the code of existing API to cache the appropriate data in the redis.  
 
->
+> Implement code for quick retrieval of static movie data - Name, Cast, Crew, Movie Plot, Runtime, Language, Genre, etc.  
+Build an endpoint for storing and retrieval of comments and ratings for a given movie. Which database would you choose and why? 
+Build an endpoint where one can search for movies and theatres.
+Implement language (Hindi, English, Kannada, Telugu etc.) and genre (Romantic, Action, Scifi). 
 
 
 ## See it in action:
