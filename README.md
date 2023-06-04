@@ -10,16 +10,22 @@ Constraint: No two people should be able to book same seat at the same time for 
 The API that loads data for all shows on a given date has become slow. Which columns would you index to improve the performance of the API ? Why ?  
 You have noticed that even after indexing the columns the API speed isn’t under 100 ms. Update the code of existing API to cache the appropriate data in the redis.  
 
+>
+
 
 ## See it in action:
 
-- Create a ```.env``` file and update the fields mentioned in [env.example file](./env.example)
+- Create a ```.env``` file and update the fields mentioned in [.env.example file](./.env.example)
+
+- If you havn't setup a authentication for elasticsearch then run ``` elasticsearch-reset-password.bat -u elastic ``` from your elasticsearch bin directory. Note that 'elastic' is a default user.
 
 - Install dependecies
 ``` npm install ```
 
 - Start your redis-server
 ``` sudo service redis-server start ``` (In Linux / WSL)
+
+- Start your elasticsearch ``` elasticsearch.bat ``` from your elasticsearch bin directory.
 
 - Start the server
 ``` npm start ```
@@ -41,6 +47,13 @@ You have noticed that even after indexing the columns the API speed isn’t unde
                 "no_of_seats": 2,
                 "seats": ["A1", "D2"]
             } 
+
+- endpoint for searching movies/cinemas
+    - ``` http://localhost:3000/search?text=keyword ```
+
+- endpoint for searching movies with filters
+    - ``` http://localhost:3000/movies?language=english|hindi&genere=horror|comedy ```
+    - from and size filter can also be used to limit the search results.
 ## Schema:
 
 ### This is the schema we'll be creating
