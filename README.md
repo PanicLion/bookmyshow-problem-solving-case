@@ -52,11 +52,25 @@ Implement language (Hindi, English, Kannada, Telugu etc.) and genre (Romantic, A
             } 
 
 - endpoint for searching movies/cinemas
-    - ``` http://localhost:3000/search?text=keyword ```
+    - ``` http://localhost:3000/search?text=keyword ``` (GET)
+
+    - ``` http://localhost:3000/movies/:id ``` (GET)
 
 - endpoint for searching movies with filters
-    - ``` http://localhost:3000/movies?language=english|hindi&genere=horror|comedy ```
+    - ``` http://localhost:3000/movies?language=english|hindi&genere=horror|comedy ``` (GET)
     - from and size filter can also be used to limit the search results.
+
+- endpoints for comments
+    - ``` http://localhost:3000/movies/:id/comments ``` (GET) you comments for the movie with 'id'
+
+    - ``` http://localhost:3000/movies/:id/comments ``` (POST) adds a comment for a movie with 'id'
+        - ```
+            // req.body
+            {
+                "comment": "Maybe you have watch some different movie.",
+                "parentId": "1"
+            }
+
 ## Schema:
 
 ### This is the schema we'll be creating

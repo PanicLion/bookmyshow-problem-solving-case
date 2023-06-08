@@ -4,6 +4,7 @@ const Movie = require('../models/movie.model');
 const { Cinema, CinemaHall } = require('../models/cinema.model');
 const Show = require('../models/show.model');
 const CinemaSeat = require('../models/seat.model').CinemaSeat;
+const Comment = require('../models/comment.model');
 const dummy_data = require('./dummy_data');
 
 
@@ -19,6 +20,8 @@ async function populateDB() {
     await Show.bulkCreate(dummy_data.showData);
 
     await CinemaSeat.bulkCreate(dummy_data.cinemaSeatData);
+
+    await Comment.bulkCreate(dummy_data.comments);
 
     await updateShows();
 }
