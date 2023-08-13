@@ -4,6 +4,7 @@ const { Cinema, CinemaHall } = require('./models/cinema.model');
 const Show = require('./models/show.model');
 const { CinemaSeat, ShowSeat } = require('./models/seat.model');
 const Booking = require('./models/booking.model');
+const Comment = require('./models/comment.model');
 
 
 function applyExtraSetup () {
@@ -33,6 +34,9 @@ function applyExtraSetup () {
 
     Show.hasMany(ShowSeat);
     ShowSeat.belongsTo(Show);
+
+    Movie.hasMany(Comment);
+    Comment.belongsTo(Movie);
 }
 
 module.exports = applyExtraSetup;
