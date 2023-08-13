@@ -18,7 +18,19 @@ Implement language (Hindi, English, Kannada, Telugu etc.) and genre (Romantic, A
 
 ## See it in action:
 
-- Create a ```.env``` file and update the fields mentioned in [.env.example file](./.env.example)
+### Setup with Docker
+
+- Make sure you have created .env file after cloning the repo and copy the contents from `env.example` file.
+```
+git clone https://github.com/PanicLion/bookmyshow-problem-solving-case.git
+
+cd bookmyshow-problem-solving-case
+
+docker-compose up
+```
+### Setup without Docker
+
+- Create a ```.env``` file and update the fields mentioned in [env.example file](./env.example)
 
 - If you havn't setup a authentication for elasticsearch then run ``` elasticsearch-reset-password.bat -u elastic ``` from your elasticsearch bin directory. Note that 'elastic' is a default user.
 

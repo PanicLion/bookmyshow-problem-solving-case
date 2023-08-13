@@ -25,12 +25,9 @@ async function getShowsByCinemaId(cinemaId, date) {
                     ]
                 }
             ],
-            // where: {
-            //     date: date,
-            //     start_time: {
-            //         [Op.gt]: new Date().toLocaleTimeString('it-IT')
-            //     }
-            // },
+            where: {
+                date: date,
+            },
             attributes: [
                 'id',
                 'start_time',
